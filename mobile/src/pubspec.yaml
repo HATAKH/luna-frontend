@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  sysmond_z_api:
+    path: ../packages/luna_api/package
   cupertino_icons: ^1.0.2
 
 dev_dependencies:

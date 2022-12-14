@@ -1,0 +1,7 @@
+# Config options for the dart-dio generator
+pubName: luna_api
+pubVersion: 1.0.0
+pubDescription: "Luna API Client"
+pubAuthor: "Hüseyin Hamad"
+useEnumExtension: false
+enumUnknownDefaultCase: false

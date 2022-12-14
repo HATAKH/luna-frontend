@@ -45,6 +45,17 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```dart
 import 'package:luna_api/luna_api.dart';
 
+
+final api = LunaApi().getAbpApiDefinitionApi();
+final bool includeTypes = true; // bool | 
+
+try {
+    final response = await api.abpApiDefinitionGet(includeTypes);
+    print(response);
+} catch on DioError (e) {
+    print("Exception when calling AbpApiDefinitionApi->abpApiDefinitionGet: $e\n");
+}
+
 ```
 
 ## Documentation for API Endpoints
@@ -53,11 +64,148 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+[*AbpApiDefinitionApi*](doc\AbpApiDefinitionApi.md) | [**abpApiDefinitionGet**](doc\AbpApiDefinitionApi.md#abpapidefinitionget) | **GET** /api/abp/api-definition | 
+[*AbpApplicationConfigurationApi*](doc\AbpApplicationConfigurationApi.md) | [**abpApplicationConfigurationGet**](doc\AbpApplicationConfigurationApi.md#abpapplicationconfigurationget) | **GET** /api/abp/application-configuration | 
+[*AbpTenantApi*](doc\AbpTenantApi.md) | [**abpTenantFindTenantById**](doc\AbpTenantApi.md#abptenantfindtenantbyid) | **GET** /api/abp/multi-tenancy/tenants/by-id/{id} | 
+[*AbpTenantApi*](doc\AbpTenantApi.md) | [**abpTenantFindTenantByName**](doc\AbpTenantApi.md#abptenantfindtenantbyname) | **GET** /api/abp/multi-tenancy/tenants/by-name/{name} | 
+[*AccountApi*](doc\AccountApi.md) | [**accountRegister**](doc\AccountApi.md#accountregister) | **POST** /api/account/register | 
+[*AccountApi*](doc\AccountApi.md) | [**accountResetPassword**](doc\AccountApi.md#accountresetpassword) | **POST** /api/account/reset-password | 
+[*AccountApi*](doc\AccountApi.md) | [**accountSendPasswordResetCode**](doc\AccountApi.md#accountsendpasswordresetcode) | **POST** /api/account/send-password-reset-code | 
+[*EmailSettingsApi*](doc\EmailSettingsApi.md) | [**emailSettingsGet**](doc\EmailSettingsApi.md#emailsettingsget) | **GET** /api/setting-management/emailing | 
+[*EmailSettingsApi*](doc\EmailSettingsApi.md) | [**emailSettingsSendTestEmail**](doc\EmailSettingsApi.md#emailsettingssendtestemail) | **POST** /api/setting-management/emailing/send-test-email | 
+[*EmailSettingsApi*](doc\EmailSettingsApi.md) | [**emailSettingsUpdate**](doc\EmailSettingsApi.md#emailsettingsupdate) | **POST** /api/setting-management/emailing | 
+[*FeaturesApi*](doc\FeaturesApi.md) | [**featuresGet**](doc\FeaturesApi.md#featuresget) | **GET** /api/feature-management/features | 
+[*FeaturesApi*](doc\FeaturesApi.md) | [**featuresUpdate**](doc\FeaturesApi.md#featuresupdate) | **PUT** /api/feature-management/features | 
+[*LoginApi*](doc\LoginApi.md) | [**loginCheckPassword**](doc\LoginApi.md#logincheckpassword) | **POST** /api/account/check-password | 
+[*LoginApi*](doc\LoginApi.md) | [**loginLogin**](doc\LoginApi.md#loginlogin) | **POST** /api/account/login | 
+[*LoginApi*](doc\LoginApi.md) | [**loginLogout**](doc\LoginApi.md#loginlogout) | **GET** /api/account/logout | 
+[*PermissionsApi*](doc\PermissionsApi.md) | [**permissionsGet**](doc\PermissionsApi.md#permissionsget) | **GET** /api/permission-management/permissions | 
+[*PermissionsApi*](doc\PermissionsApi.md) | [**permissionsUpdate**](doc\PermissionsApi.md#permissionsupdate) | **PUT** /api/permission-management/permissions | 
+[*ProfileApi*](doc\ProfileApi.md) | [**profileChangePassword**](doc\ProfileApi.md#profilechangepassword) | **POST** /api/account/my-profile/change-password | 
+[*ProfileApi*](doc\ProfileApi.md) | [**profileGet**](doc\ProfileApi.md#profileget) | **GET** /api/account/my-profile | 
+[*ProfileApi*](doc\ProfileApi.md) | [**profileUpdate**](doc\ProfileApi.md#profileupdate) | **PUT** /api/account/my-profile | 
+[*RoleApi*](doc\RoleApi.md) | [**roleCreate**](doc\RoleApi.md#rolecreate) | **POST** /api/identity/roles | 
+[*RoleApi*](doc\RoleApi.md) | [**roleDelete**](doc\RoleApi.md#roledelete) | **DELETE** /api/identity/roles/{id} | 
+[*RoleApi*](doc\RoleApi.md) | [**roleGet**](doc\RoleApi.md#roleget) | **GET** /api/identity/roles/{id} | 
+[*RoleApi*](doc\RoleApi.md) | [**roleGetAllList**](doc\RoleApi.md#rolegetalllist) | **GET** /api/identity/roles/all | 
+[*RoleApi*](doc\RoleApi.md) | [**roleGetList**](doc\RoleApi.md#rolegetlist) | **GET** /api/identity/roles | 
+[*RoleApi*](doc\RoleApi.md) | [**roleUpdate**](doc\RoleApi.md#roleupdate) | **PUT** /api/identity/roles/{id} | 
+[*TenantApi*](doc\TenantApi.md) | [**tenantCreate**](doc\TenantApi.md#tenantcreate) | **POST** /api/multi-tenancy/tenants | 
+[*TenantApi*](doc\TenantApi.md) | [**tenantDelete**](doc\TenantApi.md#tenantdelete) | **DELETE** /api/multi-tenancy/tenants/{id} | 
+[*TenantApi*](doc\TenantApi.md) | [**tenantDeleteDefaultConnectionString**](doc\TenantApi.md#tenantdeletedefaultconnectionstring) | **DELETE** /api/multi-tenancy/tenants/{id}/default-connection-string | 
+[*TenantApi*](doc\TenantApi.md) | [**tenantGet**](doc\TenantApi.md#tenantget) | **GET** /api/multi-tenancy/tenants/{id} | 
+[*TenantApi*](doc\TenantApi.md) | [**tenantGetDefaultConnectionString**](doc\TenantApi.md#tenantgetdefaultconnectionstring) | **GET** /api/multi-tenancy/tenants/{id}/default-connection-string | 
+[*TenantApi*](doc\TenantApi.md) | [**tenantGetList**](doc\TenantApi.md#tenantgetlist) | **GET** /api/multi-tenancy/tenants | 
+[*TenantApi*](doc\TenantApi.md) | [**tenantUpdate**](doc\TenantApi.md#tenantupdate) | **PUT** /api/multi-tenancy/tenants/{id} | 
+[*TenantApi*](doc\TenantApi.md) | [**tenantUpdateDefaultConnectionString**](doc\TenantApi.md#tenantupdatedefaultconnectionstring) | **PUT** /api/multi-tenancy/tenants/{id}/default-connection-string | 
+[*UserApi*](doc\UserApi.md) | [**userCreate**](doc\UserApi.md#usercreate) | **POST** /api/identity/users | 
+[*UserApi*](doc\UserApi.md) | [**userDelete**](doc\UserApi.md#userdelete) | **DELETE** /api/identity/users/{id} | 
+[*UserApi*](doc\UserApi.md) | [**userFindByEmail**](doc\UserApi.md#userfindbyemail) | **GET** /api/identity/users/by-email/{email} | 
+[*UserApi*](doc\UserApi.md) | [**userFindByUsername**](doc\UserApi.md#userfindbyusername) | **GET** /api/identity/users/by-username/{userName} | 
+[*UserApi*](doc\UserApi.md) | [**userGet**](doc\UserApi.md#userget) | **GET** /api/identity/users/{id} | 
+[*UserApi*](doc\UserApi.md) | [**userGetAssignableRoles**](doc\UserApi.md#usergetassignableroles) | **GET** /api/identity/users/assignable-roles | 
+[*UserApi*](doc\UserApi.md) | [**userGetList**](doc\UserApi.md#usergetlist) | **GET** /api/identity/users | 
+[*UserApi*](doc\UserApi.md) | [**userGetRoles**](doc\UserApi.md#usergetroles) | **GET** /api/identity/users/{id}/roles | 
+[*UserApi*](doc\UserApi.md) | [**userUpdate**](doc\UserApi.md#userupdate) | **PUT** /api/identity/users/{id} | 
+[*UserApi*](doc\UserApi.md) | [**userUpdateRoles**](doc\UserApi.md#userupdateroles) | **PUT** /api/identity/users/{id}/roles | 
+[*UserLookupApi*](doc\UserLookupApi.md) | [**userLookupFindById**](doc\UserLookupApi.md#userlookupfindbyid) | **GET** /api/identity/users/lookup/{id} | 
+[*UserLookupApi*](doc\UserLookupApi.md) | [**userLookupFindByUserName**](doc\UserLookupApi.md#userlookupfindbyusername) | **GET** /api/identity/users/lookup/by-username/{userName} | 
+[*UserLookupApi*](doc\UserLookupApi.md) | [**userLookupGetCount**](doc\UserLookupApi.md#userlookupgetcount) | **GET** /api/identity/users/lookup/count | 
+[*UserLookupApi*](doc\UserLookupApi.md) | [**userLookupSearch**](doc\UserLookupApi.md#userlookupsearch) | **GET** /api/identity/users/lookup/search | 
 
 
 ## Documentation For Models
 
-
+ - [AbpLoginResult](doc\AbpLoginResult.md)
+ - [ActionApiDescriptionModel](doc\ActionApiDescriptionModel.md)
+ - [ApplicationApiDescriptionModel](doc\ApplicationApiDescriptionModel.md)
+ - [ApplicationAuthConfigurationDto](doc\ApplicationAuthConfigurationDto.md)
+ - [ApplicationConfigurationDto](doc\ApplicationConfigurationDto.md)
+ - [ApplicationFeatureConfigurationDto](doc\ApplicationFeatureConfigurationDto.md)
+ - [ApplicationGlobalFeatureConfigurationDto](doc\ApplicationGlobalFeatureConfigurationDto.md)
+ - [ApplicationLocalizationConfigurationDto](doc\ApplicationLocalizationConfigurationDto.md)
+ - [ApplicationSettingConfigurationDto](doc\ApplicationSettingConfigurationDto.md)
+ - [ChangePasswordInput](doc\ChangePasswordInput.md)
+ - [ClockDto](doc\ClockDto.md)
+ - [ControllerApiDescriptionModel](doc\ControllerApiDescriptionModel.md)
+ - [ControllerInterfaceApiDescriptionModel](doc\ControllerInterfaceApiDescriptionModel.md)
+ - [CurrentCultureDto](doc\CurrentCultureDto.md)
+ - [CurrentTenantDto](doc\CurrentTenantDto.md)
+ - [CurrentUserDto](doc\CurrentUserDto.md)
+ - [DateTimeFormatDto](doc\DateTimeFormatDto.md)
+ - [EmailSettingsDto](doc\EmailSettingsDto.md)
+ - [EntityExtensionDto](doc\EntityExtensionDto.md)
+ - [ExtensionEnumDto](doc\ExtensionEnumDto.md)
+ - [ExtensionEnumFieldDto](doc\ExtensionEnumFieldDto.md)
+ - [ExtensionPropertyApiCreateDto](doc\ExtensionPropertyApiCreateDto.md)
+ - [ExtensionPropertyApiDto](doc\ExtensionPropertyApiDto.md)
+ - [ExtensionPropertyApiGetDto](doc\ExtensionPropertyApiGetDto.md)
+ - [ExtensionPropertyApiUpdateDto](doc\ExtensionPropertyApiUpdateDto.md)
+ - [ExtensionPropertyAttributeDto](doc\ExtensionPropertyAttributeDto.md)
+ - [ExtensionPropertyDto](doc\ExtensionPropertyDto.md)
+ - [ExtensionPropertyUiDto](doc\ExtensionPropertyUiDto.md)
+ - [ExtensionPropertyUiFormDto](doc\ExtensionPropertyUiFormDto.md)
+ - [ExtensionPropertyUiLookupDto](doc\ExtensionPropertyUiLookupDto.md)
+ - [ExtensionPropertyUiTableDto](doc\ExtensionPropertyUiTableDto.md)
+ - [FeatureDto](doc\FeatureDto.md)
+ - [FeatureGroupDto](doc\FeatureGroupDto.md)
+ - [FeatureProviderDto](doc\FeatureProviderDto.md)
+ - [FindTenantResultDto](doc\FindTenantResultDto.md)
+ - [GetFeatureListResultDto](doc\GetFeatureListResultDto.md)
+ - [GetPermissionListResultDto](doc\GetPermissionListResultDto.md)
+ - [IStringValueType](doc\IStringValueType.md)
+ - [IValueValidator](doc\IValueValidator.md)
+ - [IanaTimeZone](doc\IanaTimeZone.md)
+ - [IdentityRoleCreateDto](doc\IdentityRoleCreateDto.md)
+ - [IdentityRoleDto](doc\IdentityRoleDto.md)
+ - [IdentityRoleUpdateDto](doc\IdentityRoleUpdateDto.md)
+ - [IdentityUserCreateDto](doc\IdentityUserCreateDto.md)
+ - [IdentityUserDto](doc\IdentityUserDto.md)
+ - [IdentityUserUpdateDto](doc\IdentityUserUpdateDto.md)
+ - [IdentityUserUpdateRolesDto](doc\IdentityUserUpdateRolesDto.md)
+ - [LanguageInfo](doc\LanguageInfo.md)
+ - [ListResultDtoOfIdentityRoleDto](doc\ListResultDtoOfIdentityRoleDto.md)
+ - [ListResultDtoOfUserData](doc\ListResultDtoOfUserData.md)
+ - [LocalizableStringDto](doc\LocalizableStringDto.md)
+ - [LoginResultType](doc\LoginResultType.md)
+ - [MethodParameterApiDescriptionModel](doc\MethodParameterApiDescriptionModel.md)
+ - [ModuleApiDescriptionModel](doc\ModuleApiDescriptionModel.md)
+ - [ModuleExtensionDto](doc\ModuleExtensionDto.md)
+ - [MultiTenancyInfoDto](doc\MultiTenancyInfoDto.md)
+ - [NameValue](doc\NameValue.md)
+ - [ObjectExtensionsDto](doc\ObjectExtensionsDto.md)
+ - [PagedResultDtoOfIdentityRoleDto](doc\PagedResultDtoOfIdentityRoleDto.md)
+ - [PagedResultDtoOfIdentityUserDto](doc\PagedResultDtoOfIdentityUserDto.md)
+ - [PagedResultDtoOfTenantDto](doc\PagedResultDtoOfTenantDto.md)
+ - [ParameterApiDescriptionModel](doc\ParameterApiDescriptionModel.md)
+ - [PermissionGrantInfoDto](doc\PermissionGrantInfoDto.md)
+ - [PermissionGroupDto](doc\PermissionGroupDto.md)
+ - [ProfileDto](doc\ProfileDto.md)
+ - [PropertyApiDescriptionModel](doc\PropertyApiDescriptionModel.md)
+ - [ProviderInfoDto](doc\ProviderInfoDto.md)
+ - [RegisterDto](doc\RegisterDto.md)
+ - [RemoteServiceErrorInfo](doc\RemoteServiceErrorInfo.md)
+ - [RemoteServiceErrorResponse](doc\RemoteServiceErrorResponse.md)
+ - [RemoteServiceValidationErrorInfo](doc\RemoteServiceValidationErrorInfo.md)
+ - [ResetPasswordDto](doc\ResetPasswordDto.md)
+ - [ReturnValueApiDescriptionModel](doc\ReturnValueApiDescriptionModel.md)
+ - [SendPasswordResetCodeDto](doc\SendPasswordResetCodeDto.md)
+ - [SendTestEmailInput](doc\SendTestEmailInput.md)
+ - [TenantCreateDto](doc\TenantCreateDto.md)
+ - [TenantDto](doc\TenantDto.md)
+ - [TenantUpdateDto](doc\TenantUpdateDto.md)
+ - [TimeZone](doc\TimeZone.md)
+ - [TimingDto](doc\TimingDto.md)
+ - [TypeApiDescriptionModel](doc\TypeApiDescriptionModel.md)
+ - [UpdateEmailSettingsDto](doc\UpdateEmailSettingsDto.md)
+ - [UpdateFeatureDto](doc\UpdateFeatureDto.md)
+ - [UpdateFeaturesDto](doc\UpdateFeaturesDto.md)
+ - [UpdatePermissionDto](doc\UpdatePermissionDto.md)
+ - [UpdatePermissionsDto](doc\UpdatePermissionsDto.md)
+ - [UpdateProfileDto](doc\UpdateProfileDto.md)
+ - [UserData](doc\UserData.md)
+ - [UserLoginInfo](doc\UserLoginInfo.md)
+ - [WindowsTimeZone](doc\WindowsTimeZone.md)
 
 
 ## Documentation For Authorization
@@ -67,11 +215,12 @@ Class | Method | HTTP request | Description
 
 - **Type**: OAuth
 - **Flow**: accessCode
-- **Authorization URL**: https://localhost:44386/connect/authorize
+- **Authorization URL**: https://localhost:44362/connect/authorize
 - **Scopes**: 
  - **Luna**: Luna API
 
 
 ## Author
+
 
 
